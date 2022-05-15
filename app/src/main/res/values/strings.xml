@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Ebd</string>
+    <string name="tab_inicio">Início</string>
+    <string name="tab_alunos">Alunos</string>
+    <string name="tab_chamada">Chamada</string>
+    <string name="btn_adicionar_aluno">Adicionar aluno</string>
+    <string name="ir_para_chamada">Ir para chamada</string>
+</resources>
