@@ -5,4 +5,11 @@
     <string name="tab_chamada">Chamada</string>
     <string name="btn_adicionar_aluno">Adicionar aluno</string>
     <string name="ir_para_chamada">Ir para chamada</string>
+
+    <string name="escolher_turma_titulo">Escolha a turma</string>
+    <string-array name="turma_array">
+        <item>Mensageiros 11 - 12</item>
+        <item>Vencedores 13 - 14</item>
+        <item>Não sei o nome 15 - 17</item>
+    </string-array>
 </resources>

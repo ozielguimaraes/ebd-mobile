@@ -13,7 +13,7 @@ class SelecionarClasseActivity : AppCompatActivity() {
         ActivitySelecionarClasseBinding.inflate(layoutInflater)
     }
     private val adapter by lazy {
-        SelecionarClasseAdapter(this)
+//        SelecionarClasseAdapter(this)
     }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
