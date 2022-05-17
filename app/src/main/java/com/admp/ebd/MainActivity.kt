@@ -3,13 +3,13 @@ package com.admp.ebd
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.tabs.TabLayout
-import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
-import com.admp.ebd.ui.main.SectionsPagerAdapter
 import com.admp.ebd.databinding.ActivityMainBinding
+import com.admp.ebd.ioc.EbdModules
 import com.admp.ebd.ui.alunos.ListaAlunoActivity
 import com.admp.ebd.ui.chamada.SelecionarClasseActivity
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setupKoin()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -38,6 +39,13 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnIrParaChamada.setOnClickListener {
             startActivity(SelecionarClasseActivity.getIntent(this))
+        }
+    }
+
+    private fun setupKoin() {
+        startKoin {
+            androidContext(this@MainActivity)
+            EbdModules.loadKoinModules()
         }
     }
 }
