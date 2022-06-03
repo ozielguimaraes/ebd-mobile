@@ -5,15 +5,14 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.admp.ebd.databinding.ActivityListaAlunoBinding
+import org.koin.android.ext.android.inject
 
 class ListaAlunoActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityListaAlunoBinding
+    private val binding by lazy { ActivityListaAlunoBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityListaAlunoBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 

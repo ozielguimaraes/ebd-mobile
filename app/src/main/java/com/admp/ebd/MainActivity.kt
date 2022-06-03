@@ -9,17 +9,15 @@ import com.admp.ebd.ioc.EbdModules
 import com.admp.ebd.ui.alunos.ListaAlunoActivity
 import com.admp.ebd.ui.chamada.SelecionarClasseActivity
 import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMainBinding
+    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupKoin()
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 //        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
@@ -39,13 +37,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnIrParaChamada.setOnClickListener {
             startActivity(SelecionarClasseActivity.getIntent(this))
-        }
-    }
-
-    private fun setupKoin() {
-        startKoin {
-            androidContext(this@MainActivity)
-            EbdModules.loadKoinModules()
         }
     }
 }

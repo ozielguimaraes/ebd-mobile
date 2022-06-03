@@ -3,15 +3,16 @@ package com.admp.ebd.ui.chamada
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import com.admp.ebd.data.remote.entities.revista.RevistaRemoteEntity
 import com.admp.ebd.databinding.ActivitySelecionarClasseBinding
-import com.admp.ebd.ui.extensions.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 class SelecionarClasseActivity : AppCompatActivity() {
-    private val viewModel by sharedViewModel<SelecionarClasseViewModel>()
-    private val binding by lazy {
-        ActivitySelecionarClasseBinding.inflate(layoutInflater)
-    }
+    private val viewModel: SelecionarClasseViewModel by viewModel()
+    private val binding by lazy { ActivitySelecionarClasseBinding.inflate(layoutInflater) }
     private val adapter by lazy {
 //        SelecionarClasseAdapter(this)
     }
@@ -29,8 +30,15 @@ class SelecionarClasseActivity : AppCompatActivity() {
     }
 
     private fun setupTurmasObserver() {
-        viewModel.turmasLiveData.observe(this) {
-
+        viewModel.turmasLiveData.observe(this) { turmas ->
+//            val items: List<String> = emptyList()
+//            for (item in turmas){
+//                items.plus(item.turmaId)
+//            }
+//            turmas.map { it.turmaId }
+//            val adapter = ArrayAdapter(this, null, items)
+//            binding.spinnerTurmas.adapter = adapter
+            Timber.i("chegou  a lista $turmas")
         }
     }
 

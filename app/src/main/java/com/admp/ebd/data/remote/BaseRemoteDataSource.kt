@@ -11,11 +11,12 @@ import retrofit2.Response
 
 open class BaseRemoteDataSource(
     private val dispatcher: CoroutineDispatcher,
-    private val networkReachability: NetworkReachability
+//    private val networkReachability: NetworkReachability
 ) {
     suspend fun <T : Any> apiCall(call: suspend () -> Response<T>): ResultWrapper<T?> =
         withContext(dispatcher) {
-            if (networkReachability.isOnline()) {
+            if (true) {
+//            if (networkReachability.isOnline()) {
                 val response: Response<T>
 
                 try {

@@ -6,18 +6,18 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 
 class AlunoRemoteDataSourceImpl(
-    private val api: EbdApi,
-    networkReachability: NetworkReachability,
+//    private val api: EbdApi,
+//    networkReachability: NetworkReachability,
     dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : BaseRemoteDataSource(
-    dispatcher = dispatcher,
-    networkReachability = networkReachability
+    dispatcher = dispatcher
+//    networkReachability = networkReachability
 ), AlunoRemoteDataSource {
-    override suspend fun obterAlunosPorTurma(turmaId: Int): ResultWrapper<List<AlunoRemoteEntity>?> =
-        apiCall {
-            api.obterAlunos(
-                endpoint = "http://escolabiblicadominical.azurewebsites.net/api/aluno",
-                turmaId = turmaId
-            )
-        }
+    override suspend fun obterAlunosPorTurma(turmaId: Int): ResultWrapper<List<AlunoRemoteEntity>?> = ResultWrapper.Success(emptyList())
+//        apiCall {
+//            api.obterAlunos(
+//                endpoint = "http://escolabiblicadominical.azurewebsites.net/api/aluno",
+//                turmaId = turmaId
+//            )
+//        }
 }
